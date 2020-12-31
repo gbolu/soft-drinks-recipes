@@ -6,10 +6,21 @@ public class CategoryModel
     String imageURI;
     int dbID;
 
-    public CategoryModel(int dbID, String name, String imageURI) {
+    public String getCategoryDetails() {
+        return categoryDetails;
+    }
+
+    public void setCategoryDetails(String categoryDetails) {
+        this.categoryDetails = categoryDetails;
+    }
+
+    String categoryDetails;
+
+    public CategoryModel(int dbID, String name, String imageURI, String categoryDetails) {
         this.name = name;
         this.imageURI = imageURI;
         this.dbID = dbID;
+        this.categoryDetails = categoryDetails;
     }
 
     public int getDbID() {

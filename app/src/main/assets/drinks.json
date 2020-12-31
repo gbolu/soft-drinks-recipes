@@ -4,54 +4,54 @@
       "name": "Pepsi",
       "category": 1,
       "drinkDetails": "La di da",
-      "imageURI": "temp",
+      "imageURI": "logo",
       "recipe": [
-        "temp", "temp", "temp"
+        "logo", "logo", "logo"
       ]
     },
     {
       "name": "Fanta Orange",
       "category": 1,
       "drinkDetails": "La di da",
-      "imageURI": "temp",
+      "imageURI": "logo",
       "recipe": [
-        "temp", "temp", "temp"
+        "logo", "logo", "logo"
       ]
     },
     {
       "name": "Fanta Apple",
       "category": 1,
       "drinkDetails": "La di da",
-      "imageURI": "temp",
+      "imageURI": "logo",
       "recipe": [
-        "temp", "temp", "temp"
+        "logo", "logo", "logo"
       ]
     },
     {
       "name": "Bigi Apple",
       "category": 1,
       "drinkDetails": "La di da",
-      "imageURI": "temp",
+      "imageURI": "logo",
       "recipe": [
-        "temp", "temp", "temp"
+        "logo", "logo", "logo"
       ]
     },
     {
       "name": "Limca",
       "category": 1,
       "drinkDetails": "La di da",
-      "imageURI": "temp",
+      "imageURI": "logo",
       "recipe": [
-        "temp", "temp", "temp"
+        "logo", "logo", "logo"
       ]
     },
     {
       "name": "Smoov",
       "category": 1,
       "drinkDetails": "La di da",
-      "imageURI": "temp",
+      "imageURI": "logo",
       "recipe": [
-        "temp", "temp", "temp"
+        "logo", "logo", "logo"
       ]
     }
   ]

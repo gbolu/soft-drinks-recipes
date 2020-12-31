@@ -232,7 +232,7 @@ public final class DrinkController extends SQLiteOpenHelper
             {
                 JSONObject drink = drinks.getJSONObject(index);
                 insertDrink(drink.getString("name"), drink.getInt("category"),
-                            drink.getString("drinkDetails"), drink.getString("drinkImageURI"),
+                            drink.getString("drinkDetails"), drink.getString("imageURI"),
                             convertJSONArrToStr(drink.getJSONArray("recipe")));
             }
         }
@@ -289,7 +289,7 @@ public final class DrinkController extends SQLiteOpenHelper
 
         //  add most popular categories to list
         do{
-            CategoryModel tempCategory = new CategoryModel(cur.getInt(0), cur.getString(1), cur.getString(3));
+            CategoryModel tempCategory = new CategoryModel(cur.getInt(0), cur.getString(1), cur.getString(3), cur.getString(4));
             temp.add(tempCategory);
         }while (cur.moveToNext());
 
@@ -310,7 +310,7 @@ public final class DrinkController extends SQLiteOpenHelper
 
         cur.moveToFirst();
         do{
-            temp.add(new CategoryModel(cur.getInt(0), cur.getString(1), cur.getString(3)));
+            temp.add(new CategoryModel(cur.getInt(0), cur.getString(1), cur.getString(3), cur.getString(4)));
         }while (cur.moveToNext());
 
         //  free up cursor and db resources

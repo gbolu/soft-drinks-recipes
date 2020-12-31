@@ -1,18 +1,15 @@
 package com.org.softdrinks.adapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.org.softdrinks.R;
-import com.org.softdrinks.models.CategoryModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,19 +34,19 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.viewHolder
     @Override
     public void onBindViewHolder(@NonNull RecipeAdapter.viewHolder holder, int position) {
         String item = drinkRecipe.get(position);
-        holder.bind(item);
+        holder.bind(item, position);
     }
 
     public static class viewHolder extends RecyclerView.ViewHolder {
-        TextView name;
+        TextView recipeItem;
 
         public viewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.drink_recipe_item);
+            recipeItem = itemView.findViewById(R.id.drink_recipe_item);
         }
 
-        public void bind(final String item) {
-            name.setText(item);
+        public void bind(final String item, int position) {
+            recipeItem.setText(new StringBuilder().append("Step ").append(position + 1).append(": ").append(item).toString());
         }
     }
 

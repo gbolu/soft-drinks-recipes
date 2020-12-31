@@ -23,11 +23,6 @@ import com.org.softdrinks.models.DrinkModel;
 import java.util.ArrayList;
 import java.util.Objects;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SingleDrinkFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SingleDrinkFragment extends Fragment {
 
     private static final String DRINK_NAME = "drink_name";
@@ -49,12 +44,14 @@ public class SingleDrinkFragment extends Fragment {
     public static SingleDrinkFragment newInstance(String drinkName, String drinkImageURI, int drinkCategoryID,
                                                      String drinkDetails, String drinkRecipe) {
         SingleDrinkFragment fragment = new SingleDrinkFragment();
+
         Bundle args = new Bundle();
         args.putString(DRINK_NAME, drinkName);
         args.putString(DRINK_IMAGE_URI, drinkImageURI);
         args.putInt(DRINK_CATEGORY_ID, drinkCategoryID);
         args.putString(DRINK_DETAILS, drinkDetails);
         args.putString(DRINK_RECIPE, drinkRecipe);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -65,9 +62,11 @@ public class SingleDrinkFragment extends Fragment {
         if (getArguments() != null) {
             drinkName = getArguments().getString(DRINK_NAME);
             drinkImageURI = getArguments().getString(DRINK_IMAGE_URI);
+            drinkDetails = getArguments().getString(DRINK_DETAILS);
+
             DrinkController dc = new DrinkController(getContext());
             similarDrinks = dc.getDrinksByCategory(getArguments().getInt(DRINK_CATEGORY_ID));
-            drinkDetails = getArguments().getString(DRINK_DETAILS);
+
             drinkRecipe = Objects.requireNonNull(requireArguments().getString(DRINK_RECIPE)).split(",");
         }
     }
@@ -94,10 +93,10 @@ public class SingleDrinkFragment extends Fragment {
         drinkRecipeView.setLayoutManager(new LinearLayoutManager(requireContext()));
         drinkRecipeView.setAdapter(new RecipeAdapter(requireContext(), drinkRecipe));
 
-        RecyclerView drinkDrinksView = root.findViewById(R.id.similar_drinks);
-        drinkDrinksView.setItemAnimator(new DefaultItemAnimator());
-        drinkDrinksView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        drinkDrinksView.setAdapter(new DrinkAdapter(requireContext(), similarDrinks));
+        RecyclerView similarDrinksView = root.findViewById(R.id.similar_drinks);
+        similarDrinksView.setItemAnimator(new DefaultItemAnimator());
+        similarDrinksView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        similarDrinksView.setAdapter(new DrinkAdapter(requireContext(), this.similarDrinks));
 
         return root;
     }
