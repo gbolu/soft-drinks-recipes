@@ -1,0 +1,35 @@
+{
+  "categories":
+  [
+    {
+      "categoryName": "Soft Drinks",
+      "imageURI": "softDrinks",
+      "details": "La di da"
+    },
+    {
+      "categoryName": "Shakes",
+      "imageURI": "softDrinks",
+      "details": "La di da"
+    },
+    {
+      "categoryName": "Cocoa",
+      "imageURI": "softDrinks",
+      "details": "La di da"
+    },
+    {
+      "categoryName": "Cocktails",
+      "imageURI": "softDrinks",
+      "details": "La di da"
+    },
+    {
+      "categoryName": "Punches",
+      "imageURI": "softDrinks",
+      "details": "La di da"
+    },
+    {
+      "categoryName": "Lemonades",
+      "imageURI": "softDrinks",
+      "details": "La di da"
+    }
+  ]
+}
