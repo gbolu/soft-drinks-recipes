@@ -73,7 +73,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
 
         public void bind(final CategoryModel item, Context mContext) {
             name.setText(item.getName());
-            Uri temp = Uri.parse("android.resource://" + mContext.getPackageName() + "/drawable/" + item.);
+            Uri temp = Uri.parse("android.resource://" + mContext.getPackageName() + "/drawable/" + item.getImageURI());
             Log.println(Log.INFO, "URI info", temp.toString());
             image.setImageURI(temp);
         }
