@@ -24,9 +24,9 @@ import java.util.Objects;
 
 public class SingleCategoryFragment extends Fragment {
 
-    private static final String CATEGORY_NAME = "category_name";
-    private static final String CATEGORY_IMAGE_URI = "category_image_uri";
-    private static final String CATEGORY_ID = "category_id";
+    public static final String CATEGORY_NAME = "category_name";
+    public static final String CATEGORY_IMAGE_URI = "category_image_uri";
+    public static final String CATEGORY_ID = "category_id";
     public static final String CATEGORY_DETAILS = "category_details";
 
     private String categoryName;
@@ -65,6 +65,10 @@ public class SingleCategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_single_category, container, false);
 
@@ -77,7 +81,7 @@ public class SingleCategoryFragment extends Fragment {
                 "/drawable/" + categoryImageURI));
 
         TextView categoryDetailsView = root.findViewById(R.id.category_details);
-        categoryDetailsView.setText(String.format("Category Title: %s", categoryDetails));
+        categoryDetailsView.setText(categoryDetails);
 
         RecyclerView categoryDrinksView = root.findViewById(R.id.category_drinks);
         categoryDrinksView.setItemAnimator(new DefaultItemAnimator());

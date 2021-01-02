@@ -18,13 +18,12 @@
             android:layout_height="180dp">
 
             <ImageView
-                android:id="@+id/profile"
+                android:id="@+id/popular_category_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:padding="5dp"
-                android:src="@drawable/logo"/>
+                android:padding="5dp" />
 
         </RelativeLayout>
 

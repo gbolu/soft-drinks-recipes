@@ -2,7 +2,6 @@ package com.org.softdrinks.adapters;
 
 import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.org.softdrinks.MainActivity;
+import com.org.softdrinks.ui.start.MainActivity;
 import com.org.softdrinks.R;
 import com.org.softdrinks.models.CategoryModel;
 import com.org.softdrinks.ui.single_category.SingleCategoryFragment;
 
-import java.net.URI;
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHolder> {
@@ -44,10 +42,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SingleCategoryFragment t_frag = SingleCategoryFragment.newInstance(
-                        item.getName(), item.getImageURI(), item.getDbID(), item.getCategoryDetails()
-                );
-                switchContent(R.id.f_layout, t_frag);
+            SingleCategoryFragment t_frag = SingleCategoryFragment.newInstance(
+                    item.getName(), item.getImageURI(), item.getDbID(), item.getCategoryDetails()
+            );
+            switchContent(R.id.nav_host_fragment, t_frag);
             }
         });
     }
@@ -69,13 +67,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
         public viewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.popular_category_name);
+            image = itemView.findViewById(R.id.popular_category_image);
         }
 
         public void bind(final CategoryModel item, Context mContext) {
             name.setText(item.getName());
-            Uri temp = Uri.parse("android.resource://" + mContext.getPackageName() + "/drawable/" + item.getImageURI());
-            Log.println(Log.INFO, "URI info", temp.toString());
-            image.setImageURI(temp);
+            image.setImageURI(Uri.parse(
+                    "android.resource://" + mContext.getPackageName() +
+                    "/drawable/" + item.getImageURI()));
         }
     }
 

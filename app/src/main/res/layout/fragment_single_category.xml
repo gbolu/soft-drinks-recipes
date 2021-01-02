@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:id="@+id/f_layout">
+    android:id="@+id/f_single_category">
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="20dp">
@@ -24,6 +24,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:contentDescription="@string/category_image" />
@@ -58,6 +59,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:textSize="24sp"
                         android:id="@+id/category_details"/>
                 </LinearLayout>
 

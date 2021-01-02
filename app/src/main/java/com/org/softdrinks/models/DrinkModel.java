@@ -31,12 +31,6 @@ public class DrinkModel
         this.drinkRecipe = drinkRecipe;
     }
 
-    public DrinkModel(String category, String name, int ID) {
-        this.ID = ID;
-        this.category = category;
-        this.name = name;
-    }
-
     public String getDrinkImageURI() {
         return drinkImageURI;
     }

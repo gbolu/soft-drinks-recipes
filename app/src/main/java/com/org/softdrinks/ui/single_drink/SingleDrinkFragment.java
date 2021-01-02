@@ -4,10 +4,12 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +27,11 @@ import java.util.Objects;
 
 public class SingleDrinkFragment extends Fragment {
 
-    private static final String DRINK_NAME = "drink_name";
-    private static final String DRINK_IMAGE_URI = "drink_image_uri";
-    private static final String DRINK_CATEGORY_ID = "drink_category_id";
-    private static final String DRINK_DETAILS = "drink_details";
-    private static final String DRINK_RECIPE = "drink_recipe";
+    public static final String DRINK_NAME = "drink_name";
+    public static final String DRINK_IMAGE_URI = "drink_image_uri";
+    public static final String DRINK_CATEGORY_ID = "drink_category_id";
+    public static final String DRINK_DETAILS = "drink_details";
+    public static final String DRINK_RECIPE = "drink_recipe";
 
     private String drinkName;
     private String drinkImageURI;
@@ -74,6 +76,10 @@ public class SingleDrinkFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_single_drink, container, false);
 
@@ -96,7 +102,7 @@ public class SingleDrinkFragment extends Fragment {
         RecyclerView similarDrinksView = root.findViewById(R.id.similar_drinks);
         similarDrinksView.setItemAnimator(new DefaultItemAnimator());
         similarDrinksView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        similarDrinksView.setAdapter(new DrinkAdapter(requireContext(), this.similarDrinks));
+        similarDrinksView.setAdapter(new DrinkAdapter(requireContext(), similarDrinks));
 
         return root;
     }

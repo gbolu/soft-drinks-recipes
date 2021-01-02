@@ -39,14 +39,17 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.viewHolder
 
     public static class viewHolder extends RecyclerView.ViewHolder {
         TextView recipeItem;
+        TextView recipeNo;
 
         public viewHolder(View itemView) {
             super(itemView);
             recipeItem = itemView.findViewById(R.id.drink_recipe_item);
+            recipeNo = itemView.findViewById(R.id.drink_recipe_no);
         }
 
         public void bind(final String item, int position) {
-            recipeItem.setText(new StringBuilder().append("Step ").append(position + 1).append(": ").append(item).toString());
+            recipeNo.setText(new StringBuilder().append("Step ").append(position + 1));
+            recipeItem.setText(new StringBuilder().append(item).toString());
         }
     }
 

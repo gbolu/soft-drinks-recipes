@@ -1,16 +1,18 @@
 package com.org.softdrinks.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.org.softdrinks.MainActivity;
+import com.org.softdrinks.ui.start.MainActivity;
 import com.org.softdrinks.R;
 
 import com.org.softdrinks.models.DrinkModel;
@@ -37,15 +39,18 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.viewHolder> 
     @Override
     public void onBindViewHolder(DrinkAdapter.viewHolder holder, int position) {
         final DrinkModel item = arrayList.get(position);
-        holder.name.setText(arrayList.get(position).getName());
-        holder.category.setText(arrayList.get(position).getCategory());
+        holder.name.setText(item.getName());
+        holder.category.setText(item.getCategory());
+        holder.image.setImageURI(Uri.parse(
+                "android.resource://" + context.getPackageName() +
+                        "/drawable/" + item.getDrinkImageURI()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SingleDrinkFragment t_frag = SingleDrinkFragment.newInstance(
                         item.getName(), item.getDrinkImageURI(),
                         item.getCategoryID(), item.getDrinkDetails(), item.getDrinkRecipe());
-                switchContent(R.id.f_layout, t_frag);
+                switchContent(R.id.nav_host_fragment, t_frag);
             }
         });
     }
@@ -68,11 +73,13 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.viewHolder> 
     public static class viewHolder extends RecyclerView.ViewHolder {
         TextView name;
         TextView category;
+        ImageView image;
 
         public viewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.popular_drink_name);
             category = itemView.findViewById(R.id.popular_drink_category);
+            image = itemView.findViewById(R.id.popular_drink_image);
         }
     }
 }

@@ -30,6 +30,9 @@ public class CategoriesFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        if (container != null) {
+            container.removeAllViews();
+        }
         View root = inflater.inflate(R.layout.fragment_categories, container, false);
 
         allCategoriesView = root.findViewById(R.id.all_categories);

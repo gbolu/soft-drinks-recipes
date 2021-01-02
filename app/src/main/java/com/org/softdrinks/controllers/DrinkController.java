@@ -45,11 +45,16 @@ public final class DrinkController extends SQLiteOpenHelper
     private static final String CATEGORIES_COL_IMAGE_URI = "categoryURI";
     private static final String CATEGORIES_COL_DETAILS = "categoryDetails";
 
+    public void seedDB(Context ctx)
+    {
+        insertSeedCategories(ctx);
+        insertSeedDrinks(ctx);
+    }
+
+
     public DrinkController(@Nullable Context context)
     {
         super(context, DBNAME, null, DB_VERSION);
-        insertSeedDrinks(context);
-        insertSeedCategories(context);
     }
 
     // create tables for the drinks and the category of drinks
@@ -59,7 +64,7 @@ public final class DrinkController extends SQLiteOpenHelper
         String drinksQuery = "CREATE TABLE IF NOT EXISTS " + DRINKS_TABLE_NAME +
                 "(" +
                     DRINKS_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    DRINKS_COL_NAME + " VARCHAR(200)," +
+                    DRINKS_COL_NAME + " VARCHAR(200) UNIQUE," +
                     DRINKS_COL_CATEGORY + " INTEGER," +
                     DRINKS_COL_FAV_COUNT + " INTEGER," +
                     DRINKS_COL_DETAILS + " TEXT," +
@@ -71,7 +76,7 @@ public final class DrinkController extends SQLiteOpenHelper
         String categoryQuery = "CREATE TABLE IF NOT EXISTS " + CATEGORIES_TABLE_NAME +
                 "(" +
                     CATEGORIES_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    CATEGORIES_COL_NAME + " VARCHAR(200)," +
+                    CATEGORIES_COL_NAME + " VARCHAR(200) UNIQUE," +
                     CATEGORIES_COL_FAV_COUNT + " INTEGER DEFAULT 0," +
                     CATEGORIES_COL_IMAGE_URI + " VARCHAR(200)," +
                     CATEGORIES_COL_DETAILS + " TEXT" +
@@ -99,7 +104,7 @@ public final class DrinkController extends SQLiteOpenHelper
                     new String[]{String.valueOf(drinkID)});
 
 
-        DrinkModel temp = new DrinkModel(cur.getString(9), cur.getString(1),
+        DrinkModel temp = new DrinkModel(cur.getString(8), cur.getString(1),
                                 cur.getInt(0), cur.getString(4),
                                 cur.getInt(2), cur.getString(5), cur.getString(6));
 
@@ -111,7 +116,7 @@ public final class DrinkController extends SQLiteOpenHelper
     }
 
     private void insertDrink(String drinkName, int drinkCategory,
-                             String drinkDetails, String drinkImageURI, String drinkRecipe) throws SQLiteException
+                             String drinkDetails, String drinkImageURI, String drinkRecipe)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -122,11 +127,17 @@ public final class DrinkController extends SQLiteOpenHelper
         ct.put(DRINKS_COL_IMAGE_URI, drinkImageURI);
         ct.put(DRINKS_COL_RECIPE, drinkRecipe);
 
-        db.insertOrThrow(DRINKS_TABLE_NAME, null, ct);
+        try{
+            db.insertOrThrow(DRINKS_TABLE_NAME, null, ct);
+        }
+        catch (SQLiteException e)
+        {
+            Log.i("Drink insert failed", e.getMessage());
+        }
         db.close();
     }
 
-    private void insertCategory(String categoryName, String categoryImageURI, String categoryDetails) throws SQLiteException
+    private void insertCategory(String categoryName, String categoryImageURI, String categoryDetails)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -135,7 +146,14 @@ public final class DrinkController extends SQLiteOpenHelper
         ct.put(CATEGORIES_COL_IMAGE_URI, categoryImageURI);
         ct.put(CATEGORIES_COL_DETAILS, categoryDetails);
 
-        db.insertOrThrow(CATEGORIES_TABLE_NAME, null, ct);
+        try
+        {
+            db.insertOrThrow(CATEGORIES_TABLE_NAME, null, ct);
+        }
+        catch (SQLiteException e)
+        {
+            Log.i("Category insert failed", e.getMessage());
+        }
         db.close();
     }
 
@@ -266,7 +284,9 @@ public final class DrinkController extends SQLiteOpenHelper
 
         //  add most popular drinks to list
         do{
-            DrinkModel tempDrink = new DrinkModel(cur.getString(8), cur.getString(1), cur.getInt(0));
+            DrinkModel tempDrink = new DrinkModel(cur.getString(8), cur.getString(1),
+                    cur.getInt(0), cur.getString(4),
+                    cur.getInt(2), cur.getString(5), cur.getString(6));
             temp.add(tempDrink);
         }while (cur.moveToNext());
 
@@ -328,13 +348,18 @@ public final class DrinkController extends SQLiteOpenHelper
                 "SELECT * FROM " + DRINKS_TABLE_NAME + " a" +
                         " INNER JOIN " + CATEGORIES_TABLE_NAME + " b" +
                         " ON a." + DRINKS_COL_CATEGORY + " = " + "b." + CATEGORIES_COL_ID +
-                      " WHERE " + DRINKS_COL_CATEGORY + " = " + id + ";", null);
+                      " WHERE " + "a." + DRINKS_COL_CATEGORY + " = " + id + ";", null);
         cur.moveToFirst();
 
         ArrayList<DrinkModel> temp = new ArrayList<>();
-        do {
-            temp.add(new DrinkModel(cur.getString(8), cur.getString(1), cur.getInt(0)));
-        }while(cur.moveToNext());
+        if(cur.getCount() != 0)
+        {
+            do {
+                temp.add(new DrinkModel(cur.getString(8), cur.getString(1),
+                        cur.getInt(0), cur.getString(4),
+                        cur.getInt(2), cur.getString(5), cur.getString(6)));
+            }while(cur.moveToNext());
+        }
 
         //  free up cursor and db resources
         cur.close();
