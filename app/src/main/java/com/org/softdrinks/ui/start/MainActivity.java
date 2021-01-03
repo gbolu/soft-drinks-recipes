@@ -12,9 +12,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.org.softdrinks.R;
 import com.org.softdrinks.controllers.DrinkController;
+import com.org.softdrinks.models.CategoryModel;
+import com.org.softdrinks.models.DrinkModel;
 import com.org.softdrinks.ui.categories.CategoriesFragment;
 import com.org.softdrinks.ui.favorites.FavoritesFragment;
 import com.org.softdrinks.ui.home.HomeFragment;
+import com.org.softdrinks.ui.single_category.SingleCategoryFragment;
+import com.org.softdrinks.ui.single_drink.SingleDrinkFragment;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -63,6 +67,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         setNavigationViewListener();
+
+        if(getIntent().getExtras() != null){
+            Fragment t_frag;
+            int fragID = getIntent().getExtras().getInt("fragID");
+            DrinkController dc = new DrinkController(getApplicationContext());
+            switch (getIntent().getExtras().getInt("frgToLoad"))
+            {
+                case 1:
+                    DrinkModel tempDrink = dc.getDrink(fragID);
+                    t_frag = SingleDrinkFragment.newInstance(tempDrink.getName(), tempDrink.getDrinkImageURI(), tempDrink.getCategoryID(), tempDrink.getDrinkDetails(), tempDrink.getDrinkRecipe());
+                    break;
+
+                case 2:
+                    CategoryModel tempCat = dc.getCategory(fragID);
+                    t_frag = SingleCategoryFragment.newInstance(tempCat.getName(), tempCat.getImageURI(), tempCat.getDbID(), tempCat.getCategoryDetails());
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + getIntent().getExtras().getInt("frgToLoad"));
+            }
+            switchContent(R.id.nav_host_fragment,t_frag);
+        }
     }
 
     @Override
@@ -99,8 +124,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ft.replace(id, fragment);
         ft.addToBackStack(fragment.toString());
         ft.commit();
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-        Log.i("BStack: ", String.valueOf(count));
     }
 
     @Override

@@ -1,26 +1,29 @@
 package com.org.softdrinks.adapters;
 
 import android.content.Context;
-import android.view.View;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.org.softdrinks.R;
-import com.org.softdrinks.models.DrinkModel;
+import com.org.softdrinks.models.SearchModel;
+import com.org.softdrinks.ui.start.MainActivity;
 
 import java.util.ArrayList;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder> {
 
     Context context;
-    ArrayList<DrinkModel> arrayList;
+    ArrayList<SearchModel> arrayList;
 
-    public SearchAdapter(Context context, ArrayList<DrinkModel> arrayList) {
+    public SearchAdapter(Context context, ArrayList<SearchModel> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -34,7 +37,36 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
 
     @Override
     public void onBindViewHolder(SearchAdapter.viewHolder holder, int position) {
-        holder.name.setText(arrayList.get(position).getName());
+        final SearchModel t_search = arrayList.get(position);
+
+        holder.name.setText(t_search.getName());
+        holder.type.setText(t_search.getType());
+        holder.image.setImageURI(Uri.parse(
+                "android.resource://" + context.getPackageName() +
+                        "/drawable/" + t_search.getImageURI()));
+
+        //  start intent to start main activity
+        final Intent i = new Intent(context, MainActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        //  add listener for click on search item
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (t_search.getType()){
+                    case "Drink":
+                        i.putExtra("frgToLoad", 1);
+                        break;
+
+                    case "Category":
+                        i.putExtra("frgToLoad", 2);
+                        break;
+                }
+
+                i.putExtra("fragID", t_search.getId());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -44,9 +76,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
 
     public static class viewHolder extends RecyclerView.ViewHolder {
         TextView name;
+        TextView type;
+        ImageView image;
         public viewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.std_name);
+            name = itemView.findViewById(R.id.search_name);
+            type = itemView.findViewById(R.id.search_type);
+            image = itemView.findViewById(R.id.search_image);
         }
     }
+
+
 }

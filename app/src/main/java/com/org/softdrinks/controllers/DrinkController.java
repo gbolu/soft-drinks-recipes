@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ import androidx.annotation.Nullable;
 
 import com.org.softdrinks.models.CategoryModel;
 import com.org.softdrinks.models.DrinkModel;
+import com.org.softdrinks.models.SearchModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public final class DrinkController extends SQLiteOpenHelper
 {
@@ -100,13 +104,31 @@ public final class DrinkController extends SQLiteOpenHelper
                    "SELECT * FROM " + DRINKS_TABLE_NAME + " a" +
                         " INNER JOIN " + CATEGORIES_TABLE_NAME + " b" +
                         " ON a." + DRINKS_COL_CATEGORY + " = " + "b." + CATEGORIES_COL_ID +
-                        " WHERE " + DRINKS_COL_ID + " = ?;",
+                        " WHERE a." + DRINKS_COL_ID + " = ?;",
                     new String[]{String.valueOf(drinkID)});
 
-
+        cur.moveToFirst();
         DrinkModel temp = new DrinkModel(cur.getString(8), cur.getString(1),
                                 cur.getInt(0), cur.getString(4),
                                 cur.getInt(2), cur.getString(5), cur.getString(6));
+
+        //  close cursors and database connection
+        cur.close();
+        db.close();
+
+        return temp;
+    }
+
+    public CategoryModel getCategory(int categoryID)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery(
+                "SELECT * FROM " + CATEGORIES_TABLE_NAME +
+                        " WHERE " + CATEGORIES_COL_ID + " = ?;",
+                new String[]{String.valueOf(categoryID)});
+
+        cur.moveToFirst();
+        CategoryModel temp = new CategoryModel(cur.getInt(0), cur.getString(1), cur.getString(3), cur.getString(4));
 
         //  close cursors and database connection
         cur.close();
@@ -132,7 +154,7 @@ public final class DrinkController extends SQLiteOpenHelper
         }
         catch (SQLiteException e)
         {
-            Log.i("Drink insert failed", e.getMessage());
+            Log.i("Drink insert failed", Objects.requireNonNull(e.getMessage()));
         }
         db.close();
     }
@@ -152,7 +174,7 @@ public final class DrinkController extends SQLiteOpenHelper
         }
         catch (SQLiteException e)
         {
-            Log.i("Category insert failed", e.getMessage());
+            Log.i("Category insert failed", Objects.requireNonNull(e.getMessage()));
         }
         db.close();
     }
@@ -220,16 +242,10 @@ public final class DrinkController extends SQLiteOpenHelper
         StringBuilder completeStr = new StringBuilder();
         for (int i = 0; i < j_arr.length(); i++)
         {
-            if(i == 0)
-            {
-                completeStr.append(j_arr.getString(i));
-            }
-
-            else
-            {
+            if (i != 0) {
                 completeStr.append(",");
-                completeStr.append(j_arr.getString(i));
             }
+            completeStr.append(j_arr.getString(i));
         }
 
         return completeStr.toString();
@@ -340,6 +356,75 @@ public final class DrinkController extends SQLiteOpenHelper
         return temp;
     }
 
+    private ArrayList<DrinkModel> getAllDrinks()
+    {
+        ArrayList<DrinkModel> temp = new ArrayList<>();
+
+        //  grab most popular drinks from database
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery(
+                "SELECT * FROM " + DRINKS_TABLE_NAME + " a" +
+                        " INNER JOIN " + CATEGORIES_TABLE_NAME + " b" +
+                        " ON a." + DRINKS_COL_CATEGORY + " = " + "b."
+                        + CATEGORIES_COL_ID + ";", null);
+        cur.moveToFirst();
+
+        //  add most popular drinks to list
+        do{
+            DrinkModel tempDrink = new DrinkModel(cur.getString(8), cur.getString(1),
+                    cur.getInt(0), cur.getString(4),
+                    cur.getInt(2), cur.getString(5), cur.getString(6));
+            temp.add(tempDrink);
+        }while (cur.moveToNext());
+
+        cur.close();
+        db.close();
+
+        return temp;
+    }
+
+
+    public ArrayList<SearchModel> searchProducts(String searchString)
+    {
+        String[] strings_search = searchString.split("\\s+");
+
+        for (int i = 0; i < strings_search.length; i++) {
+            strings_search[i] = strings_search[i]
+                    .replaceFirst(String.valueOf(strings_search[i].charAt(0)),
+                            String.valueOf(Character.toUpperCase(strings_search[i].charAt(0))));
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            searchString = String.join(" ", strings_search).trim();
+        } else {
+            searchString = TextUtils.join(" ", strings_search);
+        }
+
+        ArrayList<SearchModel> searchResults = new ArrayList<>();
+        ArrayList<DrinkModel> allDrinks = getAllDrinks();
+        ArrayList<CategoryModel> allCategories = getAllCategories();
+
+        for (int i = 0; i < allDrinks.size(); i++) {
+            DrinkModel tempDrink = allDrinks.get(i);
+
+            if(tempDrink.getName().contains(searchString))
+            {
+                searchResults.add(new SearchModel(tempDrink.getName(), "Drink", tempDrink.getID(), tempDrink.getDrinkImageURI()));
+            }
+
+        }
+
+        for (int i = 0; i < allCategories.size(); i++) {
+            CategoryModel tempCategory = allCategories.get(i);
+
+            if(tempCategory.getName().contains(searchString))
+            {
+                searchResults.add(new SearchModel(tempCategory.getName(), "Category", tempCategory.getDbID(), tempCategory.getImageURI()));
+            }
+        }
+
+        return searchResults;
+    }
+
     public ArrayList<DrinkModel> getDrinksByCategory(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -355,7 +440,7 @@ public final class DrinkController extends SQLiteOpenHelper
         if(cur.getCount() != 0)
         {
             do {
-                temp.add(new DrinkModel(cur.getString(8), cur.getString(1),
+                temp.add(new DrinkModel(cur.getString(9), cur.getString(1),
                         cur.getInt(0), cur.getString(4),
                         cur.getInt(2), cur.getString(5), cur.getString(6)));
             }while(cur.moveToNext());
@@ -367,4 +452,6 @@ public final class DrinkController extends SQLiteOpenHelper
 
         return temp;
     }
+
+    public Array
 }

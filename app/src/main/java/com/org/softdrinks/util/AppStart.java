@@ -1,4 +1,4 @@
-package com.org.softdrinks.ui.start;
+package com.org.softdrinks.util;
 
 import android.app.Application;
 
