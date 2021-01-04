@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 case 1:
                     DrinkModel tempDrink = dc.getDrink(fragID);
-                    t_frag = SingleDrinkFragment.newInstance(tempDrink.getName(), tempDrink.getDrinkImageURI(), tempDrink.getCategoryID(), tempDrink.getDrinkDetails(), tempDrink.getDrinkRecipe());
+                    t_frag = SingleDrinkFragment.newInstance(tempDrink.getName(), tempDrink.getDrinkImageURI(), tempDrink.getCategoryID(), tempDrink.getDrinkDetails(), tempDrink.getDrinkRecipe(), temp.getId());
                     break;
 
                 case 2:
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 switchContent(R.id.nav_host_fragment, new HomeFragment());
                 clearBackStack();
                 break;
-            case "Favorites":
+            case "My Favorites":
                 switchContent(R.id.nav_host_fragment, new FavoritesFragment());
                 break;
             default:

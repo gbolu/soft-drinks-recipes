@@ -28,6 +28,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/linearLayout"
                     android:contentDescription="@string/drink_image"/>
 
                 <LinearLayout
@@ -39,6 +40,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/drink_image"
+                    app:layout_constraintBottom_toTopOf="@id/linearLayout2"
                     android:layout_marginTop="15dp">
 
                     <TextView
@@ -60,7 +62,8 @@
                     android:layout_marginTop="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintBottom_toTopOf="@id/linearLayout6">
 
                     <TextView
                         android:id="@+id/drink_details"
@@ -72,6 +75,39 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/linearLayout6"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/linearLayout4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:background="@color/colorPrimary"
+                        android:id="@+id/addFav"
+                        android:layout_width="150dp"
+                        android:gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:layout_height="50dp"
+                        android:text="@string/add_to_favorites"/>
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:background="@color/colorPrimary"
+                        android:id="@+id/share"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:text="@string/share_recipe"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/linearLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -79,7 +115,7 @@
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
                     <TextView
                         android:layout_width="match_parent"

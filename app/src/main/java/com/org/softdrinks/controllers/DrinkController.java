@@ -38,9 +38,9 @@ public final class DrinkController extends SQLiteOpenHelper
     private static final String DRINKS_COL_NAME = "drinkName";
     private static final String DRINKS_COL_CATEGORY = "drinkCategoryID";
     private static final String DRINKS_COL_FAV_COUNT = "drinkFavCount";
-    public static final String DRINKS_COL_DETAILS = "drinkDetails";
-    public static final String DRINKS_COL_IMAGE_URI = "drinkImageURI";
-    public static final String DRINKS_COL_RECIPE = "drinkRecipe";
+    private static final String DRINKS_COL_DETAILS = "drinkDetails";
+    private static final String DRINKS_COL_IMAGE_URI = "drinkImageURI";
+    private static final String DRINKS_COL_RECIPE = "drinkRecipe";
 
     private static final String CATEGORIES_TABLE_NAME = "Drink_Categories";
     private static final String CATEGORIES_COL_ID = "categoryID";
@@ -48,6 +48,10 @@ public final class DrinkController extends SQLiteOpenHelper
     private static final String CATEGORIES_COL_FAV_COUNT = "categoryFavCount";
     private static final String CATEGORIES_COL_IMAGE_URI = "categoryURI";
     private static final String CATEGORIES_COL_DETAILS = "categoryDetails";
+
+    private static final String FAVORITES_TABLE_NAME = "drinkFavorites";
+    private static final String FAVORITES_COL_ID = "drinkFavID";
+    private static final String FAVORITES_COL_DRINK_ID = "drinkID";
 
     public void seedDB(Context ctx)
     {
@@ -86,8 +90,16 @@ public final class DrinkController extends SQLiteOpenHelper
                     CATEGORIES_COL_DETAILS + " TEXT" +
                 ");";
 
+        String favoritesQuery = "CREATE TABLE IF NOT EXISTS " + FAVORITES_TABLE_NAME +
+                "(" +
+                    FAVORITES_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    FAVORITES_COL_DRINK_ID + " INTEGER UNIQUE," +
+                    "FOREIGN KEY(" + FAVORITES_COL_DRINK_ID + ") REFERENCES " + DRINKS_TABLE_NAME + "(" + DRINKS_COL_ID + ")" +
+                ")";
+
         sqLiteDatabase.execSQL(categoryQuery);
         sqLiteDatabase.execSQL(drinksQuery);
+        sqLiteDatabase.execSQL(favoritesQuery);
     }
 
     @Override
@@ -177,6 +189,26 @@ public final class DrinkController extends SQLiteOpenHelper
             Log.i("Category insert failed", Objects.requireNonNull(e.getMessage()));
         }
         db.close();
+    }
+
+    public boolean insertFav(int drinkID)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues ct = new ContentValues();
+        ct.put(FAVORITES_COL_DRINK_ID, drinkID);
+
+        try{
+            db.insertOrThrow(FAVORITES_TABLE_NAME, null, ct);
+        }
+        catch (SQLiteException e)
+        {
+            Log.i("Favorite insert failed", Objects.requireNonNull(e.getMessage()));
+            db.close();
+            return false;
+        }
+        db.close();
+        return true;
     }
 
     //  convert products JSON file to a JSON string
@@ -440,7 +472,7 @@ public final class DrinkController extends SQLiteOpenHelper
         if(cur.getCount() != 0)
         {
             do {
-                temp.add(new DrinkModel(cur.getString(9), cur.getString(1),
+                temp.add(new DrinkModel(cur.getString(8), cur.getString(1),
                         cur.getInt(0), cur.getString(4),
                         cur.getInt(2), cur.getString(5), cur.getString(6)));
             }while(cur.moveToNext());
@@ -453,5 +485,49 @@ public final class DrinkController extends SQLiteOpenHelper
         return temp;
     }
 
-    public Array
+    public ArrayList<DrinkModel> getFavorites()
+    {
+        ArrayList<DrinkModel> results = new ArrayList<>();
+        //  grab fav drinks from database
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery(
+                "SELECT * FROM " + FAVORITES_TABLE_NAME + " a" +
+                        " INNER JOIN " + DRINKS_TABLE_NAME + " b" +
+                        " ON a." + FAVORITES_COL_DRINK_ID + " = " + "b."
+                        + DRINKS_COL_ID + " INNER JOIN " +
+                        CATEGORIES_TABLE_NAME + " c" + " ON b."
+                        + DRINKS_COL_CATEGORY + " = " + "c." + CATEGORIES_COL_ID  + ";", null);
+        if(cur.getCount() != 0)
+        {
+            cur.moveToFirst();
+
+            do{
+                results.add(new DrinkModel(cur.getString(10), cur.getString(3),
+                        cur.getInt(1), cur.getString(6), cur.getInt(4),
+                        cur.getString(7), cur.getString(8)));
+            }while (cur.moveToNext());
+        }
+
+        db.close();
+        cur.close();
+
+        return results;
+    }
+
+    public void removeFav(int drinkID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(FAVORITES_TABLE_NAME, FAVORITES_COL_DRINK_ID + " = " + "?", new String[]{String.valueOf(drinkID)});
+        db.close();
+    }
+
+    public boolean isFav(int drinkID)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery("SELECT * FROM " + FAVORITES_TABLE_NAME + " WHERE " + FAVORITES_COL_DRINK_ID + " = ?", new String[]{String.valueOf(drinkID)});
+
+        int count = cur.getCount();
+        cur.close();
+
+        return count != 0;
+    }
 }

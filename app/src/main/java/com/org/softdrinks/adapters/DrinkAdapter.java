@@ -49,7 +49,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.viewHolder> 
             public void onClick(View view) {
                 SingleDrinkFragment t_frag = SingleDrinkFragment.newInstance(
                         item.getName(), item.getDrinkImageURI(),
-                        item.getCategoryID(), item.getDrinkDetails(), item.getDrinkRecipe());
+                        item.getCategoryID(), item.getDrinkDetails(), item.getDrinkRecipe(), item.getID());
                 switchContent(R.id.nav_host_fragment, t_frag);
             }
         });

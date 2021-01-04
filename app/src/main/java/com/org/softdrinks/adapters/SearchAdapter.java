@@ -3,6 +3,7 @@ package com.org.softdrinks.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,21 +46,21 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
                 "android.resource://" + context.getPackageName() +
                         "/drawable/" + t_search.getImageURI()));
 
-        //  start intent to start main activity
-        final Intent i = new Intent(context, MainActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
         //  add listener for click on search item
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //  start intent to start main activity
+                Log.i("Clicked:", "Reached");
+                final Intent i = new Intent(context, MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 switch (t_search.getType()){
-                    case "Drink":
-                        i.putExtra("frgToLoad", 1);
-                        break;
-
                     case "Category":
                         i.putExtra("frgToLoad", 2);
+                        break;
+
+                    default:
+                        i.putExtra("frgToLoad", 1);
                         break;
                 }
 
