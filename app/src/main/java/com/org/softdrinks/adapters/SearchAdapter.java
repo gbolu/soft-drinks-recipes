@@ -42,9 +42,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
 
         holder.name.setText(t_search.getName());
         holder.type.setText(t_search.getType());
-        holder.image.setImageURI(Uri.parse(
-                "android.resource://" + context.getPackageName() +
-                        "/drawable/" + t_search.getImageURI()));
 
         //  add listener for click on search item
         holder.itemView.setOnClickListener(new View.OnClickListener() {

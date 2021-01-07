@@ -46,6 +46,7 @@ public class FavoritesFragment extends Fragment {
         favoritesView.setAdapter(favAdapter);
         favoritesView.setItemAnimator(new DefaultItemAnimator());
         favoritesView.setLayoutManager(new LinearLayoutManager(getContext()));
+        favoritesView.setFocusable(false);
         noFavs = root.findViewById(R.id.no_favorites_results);
         noFavsLinearLayout = root.findViewById(R.id.no_favorites_layout);
 

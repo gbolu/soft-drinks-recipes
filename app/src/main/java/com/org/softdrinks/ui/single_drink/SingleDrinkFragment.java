@@ -75,7 +75,7 @@ public class SingleDrinkFragment extends Fragment {
             DrinkController dc = new DrinkController(getContext());
             similarDrinks = dc.getDrinksByCategory(getArguments().getInt(DRINK_CATEGORY_ID));
 
-            drinkRecipe = Objects.requireNonNull(requireArguments().getString(DRINK_RECIPE)).split(",");
+            drinkRecipe = Objects.requireNonNull(requireArguments().getString(DRINK_RECIPE)).split(";");
         }
     }
 
@@ -104,6 +104,15 @@ public class SingleDrinkFragment extends Fragment {
         drinkRecipeView.setItemAnimator(new DefaultItemAnimator());
         drinkRecipeView.setLayoutManager(new LinearLayoutManager(requireContext()));
         drinkRecipeView.setAdapter(new RecipeAdapter(requireContext(), drinkRecipe));
+
+        int index = 0;
+        while(index < similarDrinks.size()){
+            if(similarDrinks.get(index).getName().equalsIgnoreCase(drinkName)){
+                similarDrinks.remove(index);
+                break;
+            }
+            index++;
+        }
 
         RecyclerView similarDrinksView = root.findViewById(R.id.similar_drinks);
         similarDrinksView.setItemAnimator(new DefaultItemAnimator());
@@ -137,7 +146,7 @@ public class SingleDrinkFragment extends Fragment {
         shareRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 StringBuilder s = new StringBuilder();
                 for (int i = 0; i < drinkRecipe.length; i++)
@@ -152,8 +161,8 @@ public class SingleDrinkFragment extends Fragment {
 
                 }
                 String shareBody = s.toString();
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, drinkName + " Recipe");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, drinkName + " Recipe");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
         });

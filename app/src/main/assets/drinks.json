@@ -1,57 +1,262 @@
 {
   "drinks": [
     {
-      "name": "Pepsi",
+      "name": "Strawberry Lemonade",
       "category": 1,
-      "drinkDetails": "La di da",
+      "drinkDetails": "Freshly squeezed lemons team up with juicy strawberries for the perfect summer drink. It's tart, sweet, and all around refreshing",
       "imageURI": "logo",
       "recipe": [
-        "asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","logo"
+        "In a small saucepan over medium heat combine sugar and 1 cup of water.\nBring to a simmer and stir until dissolved.\nLet cool.",
+        "In a blender combine strawberries and 1 cup water.\nBlend until pureed.\nUsing a fine mesh strainer strain puree and discard solids.",
+        "In a large pitcher combine simple syrup - strawberry puree - lemon juice - and remaining 4 cups of water.\nAdjust with more water or lemon juice to taste.",
+        "Serve over ice with mint if desired."
       ]
     },
     {
-      "name": "Fanta Orange",
+      "name": "Virgin Cranberry Basil Sangria",
       "category": 1,
-      "drinkDetails": "La di da",
+      "drinkDetails": "Sangria without the wine? Yes, please. The fruit is the real star here — use whatever’s in season and get creative with the combination ",
       "imageURI": "logo",
       "recipe": [
-        "asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","logo"
+        "In a large pitcher combine cranberry juice - orange juice - and seltzer",
+        "Add fruit and basil and stir to combine.", "Pour over ice to serve."
       ]
     },
     {
-      "name": "Fanta Apple",
+      "name": "Virgin Piña Colada",
       "category": 1,
-      "drinkDetails": "La di da",
+      "drinkDetails": "Sit back and sip those cares away with a non-alcoholic piña colada that's basically a tropical milkshake. It's creamy, tart, and sweet and just what the doctor ordered. One drink and you'll be hooked.",
       "imageURI": "logo",
       "recipe": [
-        "asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","logo"
+        "In a blender, blend together frozen pineapple - ice cream - coconut milk - and pineapple juice.",
+        "Divide between glasses and garnish with a pineapple wedge and maraschino cherry."
       ]
     },
     {
-      "name": "Bigi Apple",
+      "name": "Perfect Shirley Temple",
       "category": 1,
-      "drinkDetails": "La di da",
+      "drinkDetails": "It's the drink of our childhood that we all still secretly love. Sweet grenadine and fresh lime juice turns a can of soda into the perfect non-alcoholic bubbly drink.",
       "imageURI": "logo",
       "recipe": [
-        "asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","logo"
+        "Fill 4 glasses with ice.",
+        "Divide soda and lime juice between glasses and top off with grenadine and pineapple juice.",
+        "Divide between glasses and garnish with a pineapple wedge and maraschino cherry."
       ]
     },
     {
-      "name": "Limca",
+      "name": "Arnold Palmer",
       "category": 1,
-      "drinkDetails": "La di da",
+      "drinkDetails": "An Arnold Palmer is drink made of half tea and half lemonade and made famous by the golfer of the same name",
       "imageURI": "logo",
       "recipe": [
-        "asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","logo"
+        "Make lemonade: In a small pot over medium heat bring 1 cup water and sugar to a boil stirring to dissolve sugar.\nLet boil 2 minutes. Let cool to room temperature.\nCombine simple syrup - remaining 2 cups water - and lemon juice.",
+        "Make tea: In a medium pot over medium-high heat bring water to a boil.\nAdd honey and stir to dissolve.\nTurn off heat and add tea bags.\nLet steep 5 minutes.\nLet cool to room temperature.",
+        "In a large pitcher combine lemonade and tea.\nPour into glasses over ice and garnish with mint and lemon wedges."
       ]
     },
     {
-      "name": "Smoov",
+      "name": "Blackberry Virgin Mojito",
       "category": 1,
-      "drinkDetails": "La di da",
+      "drinkDetails": "Classic mojitos are always refreshing with fresh mint and fruit. This non-alcoholic version is still every bit as refreshing with an easy mint simple syrup and fresh blackberries.",
       "imageURI": "logo",
       "recipe": [
-        "asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","asalishfkahfiluahdlkufal\naldshfiahefuihalehf\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nasalishfkahfiluahdlkufal\nalehfailewhfliauef","logo"
+        "In a small pot using a wooden spoon or using a mortar and pestle crush mint leaves.",
+        "Add sugar and water and bring to a boil over medium heat stirring to dissolve sugar.\nLet boil 3 minutes.",
+        "Let cool to room temperature then strain out mint leaves pressing with a wooden spoon to help release all liquid.",
+        "In a small bowl add blackberries and sugar and using a wooden spoon crush blackberries until broken down.",
+        "Divide blackberries between 4 glasses and add 2 tablespoons simple syrup and 2 tablespoons lime juice to each glass.",
+        "Fill glasses with ice and top off with seltzer, then garnish with mint."
+      ]
+    },
+    {
+      "name": "Piña Colada Protein Smoothie",
+      "category": 2,
+      "drinkDetails": "Get a boost of energy and feel like you're on vacay.",
+      "imageURI": "logo",
+      "recipe": [
+        "Combine coconut milk - banana - pineapple - mango and protein powder in a blender and blend on high until smooth.",
+        "Garnish with a wedge of pineapple and serve."
+      ]
+    },
+    {
+      "name": "Bourbon Milk Punch",
+      "category": 2,
+      "drinkDetails": "This boozy milkshake packs a serious punch. Mixed with bourbon and honey it's like a Southern summer dream and we can't get enough! ",
+      "imageURI": "logo",
+      "recipe": [
+        "In a shallow dish rim two glasses with caramel and cinnamon sugar and set aside.",
+        "In a blender combine ice cream - bourbon - vanilla - honey - and cinnamon and blend until smooth.",
+        "Pour mixture into glasses and garnish with whipped cream and ground cinnamon."
+      ]
+    },
+    {
+      "name": "Creamsicle Milkshake Shots",
+      "category": 2,
+      "drinkDetails": "Get a boost of energy and feel like you're on vacay.",
+      "imageURI": "logo",
+      "recipe": [
+        "Add rum - heavy cream - ice cream - and fruit to a blender and blend until smooth.",
+        "Pour into serving glasses. Cheers!"
+      ]
+    },
+    {
+      "name": "Firecracker Milkshake",
+      "category": 2,
+      "drinkDetails": "Allow this milkshake to bring a firework explosion of flavor to your mouth.",
+      "imageURI": "logo",
+      "recipe": [
+        "Soften ice cream to a soft serve/yogurt texture.\nEvenly divide ice cream into three bowls.",
+        "Place red food coloring in one bowl and blue food coloring in the other.\nUsing a whisk beat each bowl until color is well blended.",
+        "Layer bottom of glass with red ice cream then plain vanilla and blue ice cream",
+        "Using long spoon or knife drag it from the bottom to the top stirring in between to mix the color (do not overmix)",
+        "(Optional) decorating idea: Finish with whipped cream and red, white and blue confetti."
+      ]
+    },
+    {
+      "name": "Cap'n Crunch Milkshakes",
+      "category": 2,
+      "drinkDetails": "Crunchatize your milkshake! ",
+      "imageURI": "logo",
+      "recipe": [
+        "Combine cereal and milk in a large measuring cup (or medium bowl).",
+        "Stir, then refrigerate for at least 20 minutes and up to 1 hour to infuse the cereal flavor.",
+        "Add infused cereal-milk mixture to a blender along with 2 tablespoons peanut butter and as much as ice cream as desired.\nBlend until thick and smooth.",
+        "To decorate serving glasses, spread remaining peanut butter along the rims of the cups then roll in Cap’n Crunch crumbles.\nPour milkshake into glasses top with whipped cream and drizzle with melted peanut butter and more cereal."
+      ]
+    },
+    {
+      "name": "Red, White & Boozy Shakes",
+      "category": 2,
+      "drinkDetails": "Because freedom means you get drunk off ice cream if you want to..",
+      "imageURI": "logo",
+      "recipe": [
+        "In a blender combine 3 scoops vanilla ice cream, 2 tablespoons milk and 1 ounce Curaçao.",
+        "Blend until creamy and pour into two glasses.\nFreeze 15 to 20 minutes.",
+        "Rinse blender and add 3 scoops vanilla ice cream 2 tablespoons milk and 1 ounce vodka.",
+        "Blend until combined then pour into glasses on top of blue layer and freeze 15 to 20 minutes.",
+        "Rinse blender and add 3 scoops raspberry sorbet 2 tablespoons milk and 1 ounce raspberry vodka.\nBlend until combined then pour onto white layer.",
+        "Top each shake with whipped cream and garnish with sprinkles."
+      ]
+    },
+    {
+      "name": "Coffee Coco Shake",
+      "category": 3,
+      "drinkDetails": "Runners, Skip Your Coffee and Grab This Disneyland Chef's Rocket Fuel Smoothie ",
+      "imageURI": "logo",
+      "recipe": [
+        "Get: \n2 teaspoons agave nectar\n1/2 cup chilled coffee\n1/2 cup almond milk\n1 1/2 frozen banana sliced\n3 tablespoons unsalted almonds (roughly 18 to 20 almonds)\n2 teaspoons unsweetened natural cocoa powder\n1 cup ice",
+        "Blend all ingredients until smooth. Cheers!"
+      ]
+    },
+    {
+      "name": "You Go Glen Cocoa",
+      "category": 3,
+      "drinkDetails": "With a drink like this, it's no wonder Glen Coco was so popular.",
+      "imageURI": "logo",
+      "recipe": [
+        "Grab the following: \n1 1/2 oz. candy cane-infused vodka\n1/4 oz. Averna\n1/2 oz. Tempus Fugit Creme de Cocoa\n4 dashes Fee Brothers Aztec Chocolate Bitters\n2 oz. Nitro cold brew\n1/2 oz. Vanilla sweet cream\nWhipped cream, for garnish\nRed sugar crystals, for garnish\nCandy cane, for garnish",
+        "Combine all ingredients except garnishes in a cocktail shaker.",
+        "Add ice and shake vigorously for 10-15 seconds.\nStrain into an ice-filled brandy shifter",
+        "Top with whipped cream red sugar crystals and a small candy cane!"
+      ]
+    },
+    {
+      "name": "Coco de Mayo Cocktail",
+      "category": 3,
+      "drinkDetails": "Get a boost of energy and feel like you're on vacay.",
+      "imageURI": "logo",
+      "recipe": [
+        "Get: \n1/2 ounce fresh lemon juice\n1 ounce fresh pineapple juice\n1 1/2 ounces Coco Lopez\n2 ounces Herradura silver\nToasted shredded coconut to garnish",
+        "Combine ingredients in a shaker and shake well with ice.",
+        "Strain into a rocks glass over ice.,Garnish rim with toasted shredded coconut."
+      ]
+    },
+    {
+      "name": "Coco Loco",
+      "category": 3,
+      "drinkDetails": "Here’s a recipe for one of the cocktails I consumed on my holiday, made entirely of coconuts.",
+      "imageURI": "logo",
+      "recipe": [
+        "Blend together the coconut cream - milk and 3 shots of white rum.",
+        "Now use the chocolate spread to decorate the glass by swirling this around the inside.",
+        "Pour the coconut mixture into the glass and decorate with desiccated coconut."
+      ]
+    },
+    {
+      "name": "Sparkling Campari Orange Cocktail",
+      "category": 4,
+      "drinkDetails": "Drinking fancy cocktails always puts us in the mood to have a good time, like crafting edible garnishes and floral beverages.",
+      "imageURI": "logo",
+      "recipe": [
+        "Fill a glass with ice",
+        "Add two ounces of orange juice",
+        "Add an ounce of sparkling water.",
+        "Watch all the colours mix and swirl and sparkle!"
+      ]
+    },
+    {
+      "name": "Classic White Russian",
+      "category": 4,
+      "drinkDetails": "Slightly bitter, slightly sweet, and full of fizzies, this drink is refreshingly simple to make. (via Imagelicious)",
+      "imageURI": "logo",
+      "recipe": [
+        "Fill an old fashioned (short) glass with ice.",
+        "Pour over the vodka and kahlua.",
+        "Top with whole milk."
+      ]
+    },
+    {
+      "name": "Frozen Orange Prosecco",
+      "category": 4,
+      "drinkDetails": "Frozen Orange Prosecco mixed with freshly squeezed orange juice and blended for a slushy like consistency. This is one easy drink that you have to make this summer!",
+      "imageURI": "logo",
+      "recipe": [
+        "Open the Prosecco and pour it into a 13 x 9 inch baking tray. Place in the freezer overnight.",
+        "Once you are ready to make the Frozecco, place the frozen Prosecco into a blender in chunks.\nAdd the orange juice - ice cubes - sugar and orange zest.",
+        "Blend on high until the mixture is smooth and looks just like a slushy.",
+        "Divide the Frozecco between 4 small glasses or two regular sized jelly wine glasses.",
+        "You may have to spoon the mixture into the glasses but it'll soften up as it melts.",
+        "Garnish with a sprig of mint and add a straw. Serve at once."
+      ]
+    },
+    {
+      "name": "Peach Vodka Martini",
+      "category": 4,
+      "drinkDetails": "This peach vodka martini with lemonade is perfect for relaxing on a warm day. It’s easy and only made with 3 ingredients.",
+      "imageURI": "logo",
+      "recipe": [
+        "Pour the martini mix - lemonade and vodka into a martini shaker with some ice.",
+        "Shake until condensation forms on the outside of the martini shaker.",
+        "Pour into a glass and enjoy!."
+      ]
+    },
+    {
+      "name": "Pina Colada Punch",
+      "category": 4,
+      "drinkDetails": "Piña coladas are one of the most delicious concoctions on earth. They symbolize vacation. Warm weather. Palm trees. And fun!",
+      "imageURI": "logo",
+      "recipe": [
+        "The day (or at least several hours) before you want to serve, decoratively layer the fruit in a bundt pan.",
+        " Fill the pan with about 1 inch of pineapple juice and then transfer the pan to the freezer.",
+        "Freeze until the first layer is frozen solid.",
+        "Repeat with 2-3 more layers, freezing after each layer to create a layered ice mold.\nThis helps prevent the fruit from floating to only one section of the mold.",
+        "Keep the mold frozen until you are ready to serve.",
+        "FOR THE PUNCH:\nBlend the pineapple juice and cream of coconut in a blender until smooth.\nPour into a punch bowl.",
+        "Carefully mix in the club soda - lime juice - and rum - stirring until everything is well blended.\n",
+        "Run a little warm water over your bundt pan to loosen the fruit ice mold.\nInvert and carefully add the ice mold to the punch bowl.",
+        "Serve the punch cold with desired garnishes."
+      ]
+    },
+    {
+      "name": "Easy Citrus White Wine Sangria",
+      "category": 4,
+      "drinkDetails": "This Easy Citrus White Wine Sangria is the perfect refreshing cocktail for those hot summer days. Sit back and enjoy this fruity drink – you deserve it!",
+      "imageURI": "logo",
+      "recipe": [
+        "Get:\n1 large naval orange sliced\n2 lemons sliced\n2 limes sliced\n1/4 cup fresh mint leaves\n1/2 cup citrus vodka\n2 tablespoons agave nectar\n2 bottles of dry white wine (Sauvignon Blanc preferred).",
+        "Add all the ingredients to a large pitcher.",
+        "Stir and serve over ice.",
+        "Optional: \nFor BEST results, cover and let rest in refrigerator for 4 hours.\nThen serve over ice!."
       ]
     }
   ]

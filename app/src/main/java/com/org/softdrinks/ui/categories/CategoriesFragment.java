@@ -27,12 +27,14 @@ public class CategoriesFragment extends Fragment {
     RecyclerView allCategoriesView;
     DrinkController dc;
     ArrayList<CategoryModel> allCategories;
+    TextView allCategoriesTitle;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         if (container != null) {
             container.removeAllViews();
         }
+
         View root = inflater.inflate(R.layout.fragment_categories, container, false);
 
         allCategoriesView = root.findViewById(R.id.all_categories);
@@ -44,6 +46,11 @@ public class CategoriesFragment extends Fragment {
 
         CategoryAdapter adapter = new CategoryAdapter(getContext(), allCategories);
         allCategoriesView.setAdapter(adapter);
+        allCategoriesView.setFocusable(false);
+
+        allCategoriesTitle = root.findViewById(R.id.popular_drink_title);
+        allCategoriesTitle.setFocusable(true);
+        allCategoriesTitle.requestFocus();
 
         return root;
     }

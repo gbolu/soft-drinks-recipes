@@ -49,9 +49,11 @@ public class HomeFragment extends Fragment {
 
         DrinkAdapter adapter = new DrinkAdapter(getContext(), popularDrinks);
         popularDrinksView.setAdapter(adapter);
+        popularDrinksView.setFocusable(false);
 
         CategoryAdapter c_adapter = new CategoryAdapter(getContext(), popularCategories);
         popularCategoriesView.setAdapter(c_adapter);
+        popularCategoriesView.setFocusable(false);
 
         return root;
     }

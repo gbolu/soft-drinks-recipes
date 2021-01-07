@@ -275,7 +275,7 @@ public final class DrinkController extends SQLiteOpenHelper
         for (int i = 0; i < j_arr.length(); i++)
         {
             if (i != 0) {
-                completeStr.append(",");
+                completeStr.append(";");
             }
             completeStr.append(j_arr.getString(i));
         }
