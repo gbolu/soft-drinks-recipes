@@ -4,7 +4,7 @@
       "name": "Strawberry Lemonade",
       "category": 1,
       "drinkDetails": "Freshly squeezed lemons team up with juicy strawberries for the perfect summer drink. It's tart, sweet, and all around refreshing",
-      "imageURI": "logo",
+      "imageURI": "strawberry_lemonade",
       "recipe": [
         "In a small saucepan over medium heat combine sugar and 1 cup of water.\nBring to a simmer and stir until dissolved.\nLet cool.",
         "In a blender combine strawberries and 1 cup water.\nBlend until pureed.\nUsing a fine mesh strainer strain puree and discard solids.",
@@ -16,7 +16,7 @@
       "name": "Virgin Cranberry Basil Sangria",
       "category": 1,
       "drinkDetails": "Sangria without the wine? Yes, please. The fruit is the real star here — use whatever’s in season and get creative with the combination ",
-      "imageURI": "logo",
+      "imageURI": "virgin_cranberry",
       "recipe": [
         "In a large pitcher combine cranberry juice - orange juice - and seltzer",
         "Add fruit and basil and stir to combine.", "Pour over ice to serve."
@@ -26,7 +26,7 @@
       "name": "Virgin Piña Colada",
       "category": 1,
       "drinkDetails": "Sit back and sip those cares away with a non-alcoholic piña colada that's basically a tropical milkshake. It's creamy, tart, and sweet and just what the doctor ordered. One drink and you'll be hooked.",
-      "imageURI": "logo",
+      "imageURI": "virgin_colada",
       "recipe": [
         "In a blender, blend together frozen pineapple - ice cream - coconut milk - and pineapple juice.",
         "Divide between glasses and garnish with a pineapple wedge and maraschino cherry."
@@ -36,7 +36,7 @@
       "name": "Perfect Shirley Temple",
       "category": 1,
       "drinkDetails": "It's the drink of our childhood that we all still secretly love. Sweet grenadine and fresh lime juice turns a can of soda into the perfect non-alcoholic bubbly drink.",
-      "imageURI": "logo",
+      "imageURI": "shirley_temple",
       "recipe": [
         "Fill 4 glasses with ice.",
         "Divide soda and lime juice between glasses and top off with grenadine and pineapple juice.",
@@ -47,7 +47,7 @@
       "name": "Arnold Palmer",
       "category": 1,
       "drinkDetails": "An Arnold Palmer is drink made of half tea and half lemonade and made famous by the golfer of the same name",
-      "imageURI": "logo",
+      "imageURI": "arnold_palmer",
       "recipe": [
         "Make lemonade: In a small pot over medium heat bring 1 cup water and sugar to a boil stirring to dissolve sugar.\nLet boil 2 minutes. Let cool to room temperature.\nCombine simple syrup - remaining 2 cups water - and lemon juice.",
         "Make tea: In a medium pot over medium-high heat bring water to a boil.\nAdd honey and stir to dissolve.\nTurn off heat and add tea bags.\nLet steep 5 minutes.\nLet cool to room temperature.",
@@ -58,7 +58,7 @@
       "name": "Blackberry Virgin Mojito",
       "category": 1,
       "drinkDetails": "Classic mojitos are always refreshing with fresh mint and fruit. This non-alcoholic version is still every bit as refreshing with an easy mint simple syrup and fresh blackberries.",
-      "imageURI": "logo",
+      "imageURI": "blackberry_virgin_mojito",
       "recipe": [
         "In a small pot using a wooden spoon or using a mortar and pestle crush mint leaves.",
         "Add sugar and water and bring to a boil over medium heat stirring to dissolve sugar.\nLet boil 3 minutes.",
@@ -72,7 +72,7 @@
       "name": "Piña Colada Protein Smoothie",
       "category": 2,
       "drinkDetails": "Get a boost of energy and feel like you're on vacay.",
-      "imageURI": "logo",
+      "imageURI": "pina_protein",
       "recipe": [
         "Combine coconut milk - banana - pineapple - mango and protein powder in a blender and blend on high until smooth.",
         "Garnish with a wedge of pineapple and serve."
@@ -82,7 +82,7 @@
       "name": "Bourbon Milk Punch",
       "category": 2,
       "drinkDetails": "This boozy milkshake packs a serious punch. Mixed with bourbon and honey it's like a Southern summer dream and we can't get enough! ",
-      "imageURI": "logo",
+      "imageURI": "bourbon_milk",
       "recipe": [
         "In a shallow dish rim two glasses with caramel and cinnamon sugar and set aside.",
         "In a blender combine ice cream - bourbon - vanilla - honey - and cinnamon and blend until smooth.",
@@ -93,7 +93,7 @@
       "name": "Creamsicle Milkshake Shots",
       "category": 2,
       "drinkDetails": "Get a boost of energy and feel like you're on vacay.",
-      "imageURI": "logo",
+      "imageURI": "creamsicle_milkshake",
       "recipe": [
         "Add rum - heavy cream - ice cream - and fruit to a blender and blend until smooth.",
         "Pour into serving glasses. Cheers!"
@@ -103,7 +103,7 @@
       "name": "Firecracker Milkshake",
       "category": 2,
       "drinkDetails": "Allow this milkshake to bring a firework explosion of flavor to your mouth.",
-      "imageURI": "logo",
+      "imageURI": "firecracker",
       "recipe": [
         "Soften ice cream to a soft serve/yogurt texture.\nEvenly divide ice cream into three bowls.",
         "Place red food coloring in one bowl and blue food coloring in the other.\nUsing a whisk beat each bowl until color is well blended.",
@@ -116,7 +116,7 @@
       "name": "Cap'n Crunch Milkshakes",
       "category": 2,
       "drinkDetails": "Crunchatize your milkshake! ",
-      "imageURI": "logo",
+      "imageURI": "cap_crunch",
       "recipe": [
         "Combine cereal and milk in a large measuring cup (or medium bowl).",
         "Stir, then refrigerate for at least 20 minutes and up to 1 hour to infuse the cereal flavor.",
@@ -128,7 +128,7 @@
       "name": "Red, White & Boozy Shakes",
       "category": 2,
       "drinkDetails": "Because freedom means you get drunk off ice cream if you want to..",
-      "imageURI": "logo",
+      "imageURI": "rw_boozy",
       "recipe": [
         "In a blender combine 3 scoops vanilla ice cream, 2 tablespoons milk and 1 ounce Curaçao.",
         "Blend until creamy and pour into two glasses.\nFreeze 15 to 20 minutes.",
@@ -142,7 +142,7 @@
       "name": "Coffee Coco Shake",
       "category": 3,
       "drinkDetails": "Runners, Skip Your Coffee and Grab This Disneyland Chef's Rocket Fuel Smoothie ",
-      "imageURI": "logo",
+      "imageURI": "coffee_cocoa",
       "recipe": [
         "Get: \n2 teaspoons agave nectar\n1/2 cup chilled coffee\n1/2 cup almond milk\n1 1/2 frozen banana sliced\n3 tablespoons unsalted almonds (roughly 18 to 20 almonds)\n2 teaspoons unsweetened natural cocoa powder\n1 cup ice",
         "Blend all ingredients until smooth. Cheers!"
@@ -152,7 +152,7 @@
       "name": "You Go Glen Cocoa",
       "category": 3,
       "drinkDetails": "With a drink like this, it's no wonder Glen Coco was so popular.",
-      "imageURI": "logo",
+      "imageURI": "you_go_glen",
       "recipe": [
         "Grab the following: \n1 1/2 oz. candy cane-infused vodka\n1/4 oz. Averna\n1/2 oz. Tempus Fugit Creme de Cocoa\n4 dashes Fee Brothers Aztec Chocolate Bitters\n2 oz. Nitro cold brew\n1/2 oz. Vanilla sweet cream\nWhipped cream, for garnish\nRed sugar crystals, for garnish\nCandy cane, for garnish",
         "Combine all ingredients except garnishes in a cocktail shaker.",
@@ -164,7 +164,7 @@
       "name": "Coco de Mayo Cocktail",
       "category": 3,
       "drinkDetails": "Get a boost of energy and feel like you're on vacay.",
-      "imageURI": "logo",
+      "imageURI": "coco_de_mayo",
       "recipe": [
         "Get: \n1/2 ounce fresh lemon juice\n1 ounce fresh pineapple juice\n1 1/2 ounces Coco Lopez\n2 ounces Herradura silver\nToasted shredded coconut to garnish",
         "Combine ingredients in a shaker and shake well with ice.",
@@ -175,7 +175,7 @@
       "name": "Coco Loco",
       "category": 3,
       "drinkDetails": "Here’s a recipe for one of the cocktails I consumed on my holiday, made entirely of coconuts.",
-      "imageURI": "logo",
+      "imageURI": "coco_loco",
       "recipe": [
         "Blend together the coconut cream - milk and 3 shots of white rum.",
         "Now use the chocolate spread to decorate the glass by swirling this around the inside.",
@@ -186,7 +186,7 @@
       "name": "Sparkling Campari Orange Cocktail",
       "category": 4,
       "drinkDetails": "Drinking fancy cocktails always puts us in the mood to have a good time, like crafting edible garnishes and floral beverages.",
-      "imageURI": "logo",
+      "imageURI": "sparklin_campari",
       "recipe": [
         "Fill a glass with ice",
         "Add two ounces of orange juice",
@@ -198,7 +198,7 @@
       "name": "Classic White Russian",
       "category": 4,
       "drinkDetails": "Slightly bitter, slightly sweet, and full of fizzies, this drink is refreshingly simple to make. (via Imagelicious)",
-      "imageURI": "logo",
+      "imageURI": "white_russian",
       "recipe": [
         "Fill an old fashioned (short) glass with ice.",
         "Pour over the vodka and kahlua.",
@@ -209,7 +209,7 @@
       "name": "Frozen Orange Prosecco",
       "category": 4,
       "drinkDetails": "Frozen Orange Prosecco mixed with freshly squeezed orange juice and blended for a slushy like consistency. This is one easy drink that you have to make this summer!",
-      "imageURI": "logo",
+      "imageURI": "orange_prosecco",
       "recipe": [
         "Open the Prosecco and pour it into a 13 x 9 inch baking tray. Place in the freezer overnight.",
         "Once you are ready to make the Frozecco, place the frozen Prosecco into a blender in chunks.\nAdd the orange juice - ice cubes - sugar and orange zest.",
@@ -220,21 +220,10 @@
       ]
     },
     {
-      "name": "Peach Vodka Martini",
-      "category": 4,
-      "drinkDetails": "This peach vodka martini with lemonade is perfect for relaxing on a warm day. It’s easy and only made with 3 ingredients.",
-      "imageURI": "logo",
-      "recipe": [
-        "Pour the martini mix - lemonade and vodka into a martini shaker with some ice.",
-        "Shake until condensation forms on the outside of the martini shaker.",
-        "Pour into a glass and enjoy!."
-      ]
-    },
-    {
       "name": "Pina Colada Punch",
       "category": 4,
       "drinkDetails": "Piña coladas are one of the most delicious concoctions on earth. They symbolize vacation. Warm weather. Palm trees. And fun!",
-      "imageURI": "logo",
+      "imageURI": "pina_punch",
       "recipe": [
         "The day (or at least several hours) before you want to serve, decoratively layer the fruit in a bundt pan.",
         " Fill the pan with about 1 inch of pineapple juice and then transfer the pan to the freezer.",
@@ -251,7 +240,7 @@
       "name": "Easy Citrus White Wine Sangria",
       "category": 4,
       "drinkDetails": "This Easy Citrus White Wine Sangria is the perfect refreshing cocktail for those hot summer days. Sit back and enjoy this fruity drink – you deserve it!",
-      "imageURI": "logo",
+      "imageURI": "easy_citrus",
       "recipe": [
         "Get:\n1 large naval orange sliced\n2 lemons sliced\n2 limes sliced\n1/4 cup fresh mint leaves\n1/2 cup citrus vodka\n2 tablespoons agave nectar\n2 bottles of dry white wine (Sauvignon Blanc preferred).",
         "Add all the ingredients to a large pitcher.",

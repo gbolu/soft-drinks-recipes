@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setNavigationViewListener();
 
         if(getIntent().getExtras() != null){
-            Fragment t_frag;
+            Fragment t_frag = new HomeFragment();
             int fragID = getIntent().getExtras().getInt("fragID");
             DrinkController dc = new DrinkController(getApplicationContext());
             switch (getIntent().getExtras().getInt("frgToLoad"))
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     t_frag = SingleCategoryFragment.newInstance(tempCat.getName(), tempCat.getImageURI(), tempCat.getDbID(), tempCat.getCategoryDetails());
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + getIntent().getExtras().getInt("frgToLoad"));
+                    break;
             }
             switchContent(R.id.nav_host_fragment,t_frag);
         }

@@ -5,6 +5,8 @@
     <application
         android:name=".util.AppStart"
         android:allowBackup="true"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/logo_transparent"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"

@@ -3,24 +3,23 @@
   [
     {
       "categoryName": "Soft Drinks",
-      "imageURI": "logo",
+      "imageURI": "soft_drinks",
       "details": "You can't host a party without drinks—these mocktails, punches, and lemonades prove it. And for everyone else who is drinking, we've got some next-level summer cocktails you totally need to try."
     },
     {
       "categoryName": "Shakes",
-      "imageURI": "logo",
+      "imageURI": "shakes",
       "details": "For these easy milkshake recipes, we recreated some of our favorite desserts (umm...banana cream pie?) — and turned to heavenly ingredient combos like peanut butter and brownie."
     },
     {
       "categoryName": "Cocoa",
-      "imageURI": "logo",
-      "details": "It’s creamy, chocolatey, and everything hot cocoa should be. Did I mention how easy it is to make"
+      "imageURI": "cocoa",
+      "details": "It’s creamy, chocolatey, and everything hot cocoa should be. Did I mention how easy it is to make?"
     },
     {
       "categoryName": "Cocktails",
-      "imageURI": "logo",
-      "details": "Serve these fan-favourite cocktails at your next party. See our best ever classic cocktails"
-    },
-
+      "imageURI": "cocktails",
+      "details": "Serve these fan-favourite cocktails at your next party. See our best ever classic cocktails."
+    }
   ]
 }

@@ -149,6 +149,7 @@ public class SingleDrinkFragment extends Fragment {
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 StringBuilder s = new StringBuilder();
+                s.append(drinkName + " Recipe\n");
                 for (int i = 0; i < drinkRecipe.length; i++)
                 {
                     s.append("Step " + String.valueOf(i + 1));
